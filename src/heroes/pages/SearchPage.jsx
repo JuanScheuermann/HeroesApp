@@ -53,13 +53,12 @@ export const SearchPage = () => {
                     <h4>Results</h4>
                     <hr />
 
-                    <div className="alert alert-primary">
-                        Buscar heroe
-                    </div>
-
-                    <div className="alert alert-danger">
-                        No se encontro el heroe <b>{q}</b>
-                    </div>
+                    {
+                        (q === '')
+                            ? <div className="alert alert-primary">Buscar heroe</div>
+                            : (heroes.length === 0)
+                            && <div className="alert alert-danger">No se encontro el heroe <b>{q}</b></div>
+                    }
 
                     {
                         heroes.map(hero => (
